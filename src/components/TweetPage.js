@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Tweet from './Tweet'
 import NewTweet from './NewTweet'
 
- class TweetPage extends Component {
+class TweetPage extends Component {
   render() {
     const { id, replies } = this.props
     return (
@@ -23,10 +23,10 @@ import NewTweet from './NewTweet'
   }
 }
 
- function mapStateToProps ({ authedUser, tweets, users }, props) {
+function mapStateToProps ({ authedUser, tweets, users }, props) {
   const { id } = props.match.params
 
-   return {
+  return {
     id,
     replies: !tweets[id]
       ? []
@@ -34,4 +34,4 @@ import NewTweet from './NewTweet'
   }
 }
 
- export default connect(mapStateToProps)(TweetPage)
+export default connect(mapStateToProps)(TweetPage)

@@ -29,9 +29,11 @@ class Tweet extends Component {
     if (tweet === null) {
       return <p>This Tweet doesn't existd</p>
     }
+
     const {
       name, avatar, timestamp, text, hasLiked, likes, replies, id, parent
     } = tweet
+
     return (
       <Link to={`/tweet/${id}`} className='tweet'>
         <img
@@ -65,9 +67,11 @@ class Tweet extends Component {
     )
   }
 }
+
 function mapStateToProps ({authedUser, users, tweets}, { id }) {
   const tweet = tweets[id]
   const parentTweet = tweet ? tweets[tweet.replyingTo] : null
+
   return {
     authedUser,
     tweet: tweet
@@ -75,4 +79,5 @@ function mapStateToProps ({authedUser, users, tweets}, { id }) {
       : null
   }
 }
+
 export default withRouter(connect(mapStateToProps)(Tweet))
